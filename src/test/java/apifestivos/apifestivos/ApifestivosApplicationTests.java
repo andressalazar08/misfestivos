@@ -1,10 +1,10 @@
-package apicampeonatosfifa.apicampeonatosfifa;
+package apifestivos.apifestivos;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApicampeonatosfifaApplicationTests {
+class ApifestivosApplicationTests {
 
 	@Test
 	void contextLoads() {
