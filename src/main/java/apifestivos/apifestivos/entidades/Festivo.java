@@ -1,13 +1,17 @@
 package apifestivos.apifestivos.entidades;
 
+import java.util.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+
 
 @Entity
 @Table(name="festivos")
@@ -15,7 +19,7 @@ public class Festivo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "festivo")
-    private long id;
+    private int id;
 
     @Column(name = "tipo", length = 100)
     private String nombre;
@@ -31,25 +35,30 @@ public class Festivo {
 
     @ManyToOne
     @JoinColumn(name = "idtipo", referencedColumnName = "id")
-    private Tipo idtipo;
+    private int idtipo;
+
+    @Column(name = "fecha")
+    private Date fecha;
 
     public Festivo() {
     }
 
-    public Festivo(long id, String nombre, int dia, int mes, int diasPascua, Tipo idtipo) {
+
+    public Festivo(int id, String nombre, int dia, int mes, int diasPascua, int idtipo, Date fecha) {
         this.id = id;
         this.nombre = nombre;
         this.dia = dia;
         this.mes = mes;
         this.diasPascua = diasPascua;
         this.idtipo = idtipo;
+        this.fecha = fecha;
     }
 
     public long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -85,12 +94,20 @@ public class Festivo {
         this.diasPascua = diasPascua;
     }
 
-    public Tipo getIdtipo() {
+    public int getIdtipo() {
         return idtipo;
     }
 
-    public void setIdtipo(Tipo idtipo) {
+    public void setIdtipo(int idtipo) {
         this.idtipo = idtipo;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
 
     
