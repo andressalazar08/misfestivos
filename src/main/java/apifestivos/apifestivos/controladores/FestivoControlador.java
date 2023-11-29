@@ -37,7 +37,7 @@ public class FestivoControlador {
     @RequestMapping(value = "/verificar/{anio}/{mes}/{dia}", method = RequestMethod.GET)
     public boolean esFestivo(@PathVariable int anio,@PathVariable int mes, @PathVariable int dia) {
         String sDate1=anio+"/"+mes+"/"+dia;  
-        Date fechacapturada=new SimpleDateFormat("dd/MM/yyyy").parse(sDate1);  
+        Date fechacapturada=new SimpleDateFormat("yyyy/MM/dd").parse(sDate1);  
         
         return this.festivoServicio.esFestivo(fechacapturada);
     }
